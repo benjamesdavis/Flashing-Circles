@@ -57,7 +57,7 @@
       }
 
       setInterval(function(){
-        d3.csv('https://raw.githubusercontent.com/benjamesdavis/test/master/data.csv'+'?=' + new Date().getTime()).then(function(data){render(data)})
+        d3.csv('data.csv'+'?=' + new Date().getTime()).then(function(data){render(data)})
       }, 1000)
 
 
