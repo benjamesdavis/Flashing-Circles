@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <!-- Load d3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+
+  </head>
+
+
+  <body>
+
+
+      <script>
+
+      const width = 300;
+      const height = 70
+
+      const svg = d3.select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+      const margin = {
+        left: 20,
+        right: 20
+      };
+
+      const numCircles = 10;
+
+
+      // const updateData = function(){
+      //   return d3.range(numCircles).map(d => ({
+      //     status: Math.round(Math.random()) % 2 == 0 ? 'occupied' : 'empty'
+      //    }))
+      // };
+
+      const xScale = d3.scaleLinear()
+      .domain([0, numCircles - 1])
+      .range([margin.left, width - margin.right]);
+
+      render = function(data){
+          svg.selectAll("circle")
+          .data(data)
+          .join(
+            enter => enter.append("circle")
+            .attr("cx", (d,i) => xScale(i))
+            .attr("cy", height / 2)
+            .attr("r", (width - margin.left - margin.right) / numCircles / 2)
+            .attr("stroke", "black")
+            .attr("fill", d => d.status == "occupied" ? "black" : "white"),
+            update => update
+              .transition().duration(1000)
+              .attr("fill", d => d.status == "occupied" ? "black" : "white"))
+      }
+
+      setInterval(function(){
+        d3.csv('https://raw.githubusercontent.com/benjamesdavis/test/master/data.csv'+'?=' + new Date().getTime()).then(function(data){render(data)})
+      }, 1000)
+
+
+
+
+
+
+
+      </script>
+
+  </body>
+
+</html>
