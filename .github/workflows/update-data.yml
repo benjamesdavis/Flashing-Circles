@@ -17,7 +17,7 @@ jobs:
       - name: install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install csv random
+          pip install random
 
       - name: execute py script
         run: |
