@@ -21,4 +21,4 @@ jobs:
 
       - name: execute py script
         run: |
-          python generate-occupied-status-data.py
+          python generate-occupied-status-data-csv.py
