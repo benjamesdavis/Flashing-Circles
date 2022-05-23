@@ -1,6 +1,8 @@
 name: Update occupied status data
 
-on: push
+on:
+  schedule:
+    - cron: "*/1 * * * *"
 
 jobs:
   build:
