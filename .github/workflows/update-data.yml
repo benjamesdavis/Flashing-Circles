@@ -22,3 +22,15 @@ jobs:
       - name: execute py script
         run: |
           python generate-occupied-status-data-csv.py
+
+
+      - name: commit files
+        run: |
+          git add -A
+          git commit -m "update data" -a
+
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
