@@ -20,5 +20,5 @@ jobs:
           pip install csv random
 
       - name: execute py script
-         run: |
-         python generate-occupied-status-data.py
+        run: |
+          python generate-occupied-status-data.py
