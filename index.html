@@ -52,7 +52,7 @@
             .attr("stroke", "black")
             .attr("fill", d => d.status == "occupied" ? "black" : "white"),
             update => update
-              .transition().duration(1000)
+              .transition().duration(2000)
               .attr("fill", d => d.status == "occupied" ? "black" : "white"))
       }
 
