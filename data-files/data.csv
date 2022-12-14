@@ -1,4 +1,6 @@
 status
+occupied
+occupied
 empty
 occupied
 empty
@@ -6,5 +8,3 @@ empty
 empty
 occupied
 empty
-empty
-occupied
